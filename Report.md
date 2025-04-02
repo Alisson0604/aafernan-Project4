@@ -10,4 +10,10 @@ Answer the following prompts directly in this file:
   * If you need to sort a contacts list on a mobile app, which sorting algorithm(s) would you use and why? 
   * What about if you need to sort a database of 20 million client files that are stored in a datacenter in the cloud?
 
+
+
+Bubble
+Insertion
+Heap
+Quick
 **Note: Any code that was not authored by yourself or the instructor must be cited in your report. This includes the use of concepts not taught in lecture.**
