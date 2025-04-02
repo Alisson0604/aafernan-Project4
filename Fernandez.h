@@ -119,32 +119,32 @@ class Fernandez
 
     // Overload == operator
     friend bool operator == (const Fernandez& poke1, const Fernandez& poke2){
-       return poke1.name == poke2.name;
+       return poke1.attack == poke2.attack;
         }
 
     // Overload != operator
     friend bool operator != (const Fernandez& poke1, const Fernandez& poke2){
-       return !(poke1.name == poke2.name);
+       return !(poke1.attack == poke2.attack);
         }
 
     // Overload < operator
     friend bool operator < (const Fernandez& poke1, const Fernandez& poke2){
-       return poke1.name < poke2.name;
+       return poke1.attack < poke2.attack;
         }
 
     // Overload > operator
     friend bool operator > (const Fernandez& poke1, const Fernandez& poke2){
-       return poke1.name > poke2.name;
+       return poke1.attack > poke2.attack;
         }
 
     // Overload <= operator
     friend bool operator <= (const Fernandez& poke1, const Fernandez& poke2){
-       return !(poke1.name > poke2.name);
+       return !(poke1.attack > poke2.attack);
         }
 
     // Overload >= operator
     friend bool operator >= (const Fernandez& poke1, const Fernandez& poke2){
-       return !(poke1.name < poke2.name);
+       return !(poke1.attack < poke2.attack);
         }
 };
 

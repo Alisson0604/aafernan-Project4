@@ -34,8 +34,6 @@ vector<Comparable> selectionSort(vector<Comparable> vec, unsigned long& reads, u
         // Uncomment this line if you want to see each iteration
         //printVec(vec);
     }
-    cout << reads << endl;
-    cout << allocations << endl;
     return vec;
 }
 

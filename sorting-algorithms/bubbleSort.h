@@ -37,8 +37,6 @@ vector<Comparable> bubbleSort(vector<Comparable> vec, unsigned long& reads, unsi
         // Uncomment this line if you want to see each iteration
         //printVec(vec);
     }
-    cout << reads << endl;
-    cout << allocations << endl;
     return vec;
 }
 

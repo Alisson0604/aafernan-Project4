@@ -13,26 +13,70 @@
 #include <algorithm>
 #include <random>
 
+using std::string, std::vector, std::ifstream;
 using namespace std;
 
 void stabilityTest();
 
 int main() {
 
-    // TODO: Get your vector of custom data type objects ready
+    unsigned long reads, allocations;
+
+    // Load data
     std::vector<Fernandez> pokemons;
     std::string file = "../Fernandez_pokemon.csv";
     loadFromFile(file, pokemons);
 
-    // Shuffle vector
-    std::random_device rd;
-    std::mt19937 g(rd());
-    std::shuffle(pokemons.begin(), pokemons.end(), g);
+    // Create and open ofstream objects to save results
+    ofstream outFileBubbleSort, outFileMergeSort, outFileHeapSort, outFileSelectionSort;
+    outFileBubbleSort.open("../bubbleSort.csv");
+    outFileMergeSort.open("../mergeSort.csv");
+    outFileHeapSort.open("../heapSort.csv");
+    outFileSelectionSort.open("../selectionSort.csv");
 
-    // TODO: loop through vector sizes from 1000 to 100 in decrements of 100
+    // loop through vector sizes from 1000 to 100 in decrements of 100
+    for (int i = 1000; i >= 100; i-=100) {
+        pokemons.resize(i);
+        cout << "* Pokemons vector size: " << i << endl;
+        // sort the vector in four different ways (bubble, merge, heap, selection)
+        // record the number of reads and allocations for each sort
+        // Bubble Sort
+        reads = 0, allocations = 0;
+        bubbleSort(pokemons, reads, allocations);
+        cout << "Bubble Sort reads: " << reads << endl;
+        cout << "Bubble Sort allocations: " << allocations << endl;
+        outFileBubbleSort << i << "," << reads << "," << allocations << endl;
+        cout << " " << endl;
 
-    // TODO: sort the vector in four different ways (bubble, ?, heap, ?)
-    // TODO: record the number of reads and allocations for each sort
+        // Merge Sort
+        reads = 0, allocations = 0;
+        mergeSort(pokemons, reads, allocations);
+        cout << "Merge Sort reads: " << reads << endl;
+        cout << "Merge Sort allocations: " << allocations << endl;
+        outFileMergeSort << i << "," << reads << "," << allocations << endl;
+        cout << " " << endl;
+
+        // Heap Sort
+        reads = 0, allocations = 0;
+        heapSort(pokemons, reads, allocations);
+        cout << "Heap Sort reads: " << reads << endl;
+        cout << "Heap Sort allocations: " << allocations << endl;
+        outFileHeapSort << i << "," << reads << "," << allocations << endl;
+        cout << " " << endl;
+
+        // Selection Sort
+        reads = 0, allocations = 0;
+        selectionSort(pokemons, reads, allocations);
+        cout << "Selection Sort reads: " << reads << endl;
+        cout << "Selection Sort allocations: " << allocations << endl;
+        outFileSelectionSort << i << "," << reads << "," << allocations << endl;
+        cout << " " << endl;
+    }
+    // Close CSV files with results stored
+    outFileBubbleSort.close();
+    outFileMergeSort.close();
+    outFileHeapSort.close();
+    outFileSelectionSort.close();
 
     stabilityTest();
     return 0;
@@ -47,10 +91,12 @@ void stabilityTest() {
     cout << endl << "Bubble Sort" << endl;
     people.sortAndPrint(bubbleSort<contact>);
 
-    // TODO: add other stable algorithm here
+    cout << endl << "Merge Sort" << endl;
+    people.sortAndPrint(mergeSort<contact>);
 
     cout << endl << "Heap Sort" << endl;
     people.sortAndPrint(heapSort<contact>);
 
-    // TODO: add other unstable algorithm here
+    cout << endl << "Selection Sort" << endl;
+    people.sortAndPrint(selectionSort<contact>);
 }

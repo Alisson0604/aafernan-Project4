@@ -44,7 +44,7 @@ void percolateDown(vector<Comparable> &items, int& i, unsigned long& n, int& chi
 template <typename Comparable>
 vector<Comparable> heapSort(vector<Comparable> items, unsigned long& reads, unsigned long& allocations) {
     reads = allocations = 0;
-    int i, child
+    int i, child;
     allocations += sizeof(int) * 2;
     Comparable temp, tmp;
     allocations += sizeof(Comparable) * 2;
@@ -76,8 +76,6 @@ vector<Comparable> heapSort(vector<Comparable> items, unsigned long& reads, unsi
         // Uncomment this line if you want to see each iteration
         //printVec(vec);
     }
-    cout << reads << endl;
-    cout << allocations << endl;
     return items;
 }
 

@@ -64,10 +64,8 @@ vector<Comparable> mergeSort(vector<Comparable> vec, unsigned long& reads, unsig
     vector<Comparable> temp(vec.size());
     allocations += sizeof(Comparable) * vec.size();
     int i, leftIndex, rightIndex;
-    allocations += sizeof(int) * 3
+    allocations += sizeof(int) * 3;
     mergeSortRec(vec, 0, vec.size() - 1, temp, i, leftIndex, rightIndex, reads, allocations);
-    cout << reads << endl;
-    cout << allocations << endl;
     return vec;
 }
 
