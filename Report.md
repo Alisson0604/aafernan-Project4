@@ -24,7 +24,7 @@ Answer the following prompts directly in this file:
     According to the reads graph, Bubble Sort and Selection Sort are the two algorithms with the highest number of reads, while Merge Sort and Heap Sort have significantly
     fewer reads. This is directly related to the time complexity of each algorithm.
     In the case of Bubble Sort and Selection Sort, both have a time complexity of O(N^2) (exponential increase on the graph), making them inefficient for large datasets. On the other hand, Heap Sort and Merge
-    Sort both have a time complexity ![img.png](img.png)of O(NlogN). However, despite having the same complexity, there is a clear difference in the number of reads between Heap Sort and Merge Sort, which is due to the way they
+    Sort both have a time complexity of O(NlogN). However, despite having the same complexity, there is a clear difference in the number of reads between Heap Sort and Merge Sort, which is due to the way they
     work internally. Merge Sort accesses elements in a more structured and sequential way, reducing the number of reads, whereas Heap Sort involves multiple swaps and comparisons, leading to numerous accesses
     to the elements.
 
