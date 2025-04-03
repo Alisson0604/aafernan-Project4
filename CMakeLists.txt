@@ -17,4 +17,4 @@ add_executable(Project4
         main.cpp
         stability-test/contactsList.h
         Fernandez.h
-        sorting-algorithms/test.h)
+)
